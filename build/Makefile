@@ -258,6 +258,33 @@ src/snake.cpp.s:
 	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/snake.cpp.s
 .PHONY : src/snake.cpp.s
 
+src/user.o: src/user.cpp.o
+
+.PHONY : src/user.o
+
+# target to build an object file
+src/user.cpp.o:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/user.cpp.o
+.PHONY : src/user.cpp.o
+
+src/user.i: src/user.cpp.i
+
+.PHONY : src/user.i
+
+# target to preprocess a source file
+src/user.cpp.i:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/user.cpp.i
+.PHONY : src/user.cpp.i
+
+src/user.s: src/user.cpp.s
+
+.PHONY : src/user.s
+
+# target to generate assembly for a file
+src/user.cpp.s:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/user.cpp.s
+.PHONY : src/user.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +309,9 @@ help:
 	@echo "... src/snake.o"
 	@echo "... src/snake.i"
 	@echo "... src/snake.s"
+	@echo "... src/user.o"
+	@echo "... src/user.i"
+	@echo "... src/user.s"
 .PHONY : help
 
 

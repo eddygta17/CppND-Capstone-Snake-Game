@@ -27,6 +27,8 @@ iostream
 -
 SDL.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/SDL.h
+user.h
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.h
 
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/game.h
 random
@@ -39,6 +41,8 @@ renderer.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/renderer.h
 snake.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/snake.h
+user.h
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.h
 
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/main.cpp
 iostream
@@ -63,8 +67,12 @@ vector
 -
 SDL.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/SDL.h
+user.h
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.h
 snake.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/snake.h
+SDL2/SDL_image.h
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/SDL2/SDL_image.h
 
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/snake.cpp
 snake.h
@@ -79,6 +87,24 @@ vector
 -
 SDL.h
 /home/abel/Desktop/CppND-Capstone-Snake-Game/src/SDL.h
+
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.cpp
+user.h
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.h
+fstream
+-
+sstream
+-
+algorithm
+-
+iostream
+-
+vector
+-
+
+/home/abel/Desktop/CppND-Capstone-Snake-Game/src/user.h
+string
+-
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

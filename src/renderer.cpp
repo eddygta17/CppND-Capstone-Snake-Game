@@ -26,10 +26,17 @@ Renderer::Renderer(const std::size_t screen_width,
   }
 
   // Create renderer
-  sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
+  sdl_renderer = SDL_CreateRenderer(sdl_window, 2, SDL_RENDERER_ACCELERATED);
   if (nullptr == sdl_renderer) {
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  }
+  
+  // Initilize background texture
+  if (background == NULL)
+  {
+    std::string path = "../data/background.jpg";
+    background = LoadImage(path, sdl_renderer);
   }
 }
 
@@ -40,12 +47,16 @@ Renderer::~Renderer() {
 
 void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_Rect block;
+  
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
+
+  // Render copy for background image
+  SDL_RenderCopy(sdl_renderer , background , NULL , NULL );
 
   // Render food
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
@@ -75,7 +86,29 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+void Renderer::UpdateWindowTitle(int score, int fps, User& user) {
+  std::string title{"Player: " + user.Name() + " Record Score: " + std::to_string(user.Record()) +
+    " Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
+}
+
+SDL_Texture* Renderer::LoadImage(const std::string &image_path, SDL_Renderer* sdl_renderer)
+{
+  //Create SDL_Surface
+  SDL_Surface* background = IMG_Load(image_path.c_str());
+  if(background == NULL)
+  {
+    std::cout << "SDL_Surface image load failed: " << SDL_GetError() << '\n';
+  }
+
+  //creates a SDL_Texture from a SDL_Surface
+  SDL_Texture* texture = SDL_CreateTextureFromSurface(sdl_renderer , background); 
+  if(texture == NULL)
+  {
+    std::cout << "SDL_Texure load failed: " << SDL_GetError() << '\n';
+  }
+  
+  //free memory from allocated surface
+  SDL_FreeSurface(background);  
+  return texture;
 }
